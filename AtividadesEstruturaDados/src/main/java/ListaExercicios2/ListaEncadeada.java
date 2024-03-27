@@ -1,20 +1,40 @@
 package ListaExercicios2;
 
-import java.util.Scanner;
-
 public class ListaEncadeada {
+    int ultimo = 0;
+    int aux;
+    private int[] vetor;
 
-    public static class Teste {
-        public static void main(String[] args) {
+    public void ListaVazia() {
+        int[] vetor = new int[10];
+    }
 
-            Scanner ler = new Scanner(System.in);
+    public void InserirInicio(int num) {
+        if (ultimo == 0) {
+            this.vetor[ultimo] = num;
+            ultimo++;
+        } else {
+            for (int i = 0; i < 10; i++) {
 
-            System.out.println("Digite um numero de 3 digitos");
-
-
-
-
-
+            }
         }
     }
+
+    public void InserirFim(int num) {
+        this.vetor[ultimo] = num;
+        ultimo++;
+    }
+
+    public  void InserirPosicao(int num, int posicao) {
+        aux = --ultimo;
+        for (int i = ultimo; i = posicao; i--){
+            this.vetor[aux] = this.vetor[aux+1];
+            aux --;
+        }
+        vetor[posicao] = num;
+    }
+
+
 }
+
+

@@ -1,6 +1,5 @@
 package ListaExercicios;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Exercicio5 {
@@ -12,82 +11,77 @@ public class Exercicio5 {
 
     //5.1
 
-
-    public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
-        bubbleSort(arr);
-        System.out.println("Array ordenado usando Bubble Sort:");
-
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-    }
-
-    public static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        int contador1 = 0;
+    public static int bubbleSort(int[] arr1) {
+        int n = arr1.length;
+        int contador = 0;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    contador1++;
+                if (arr1[j] > arr1[j + 1]) {
+                    int temp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = temp;
+                    contador++;
                 }
             }
         }
-        main(contador1);
+        return contador;
     }
 
-    public Exercicio5() {
+    public static int InsertionSort(int[] arr2) {
+        int n = arr2.length;
+        int contador = 0;
+        for (int i = 1; i < n; ++i) {
+            int chave = arr2[i];
+            int j = i - 1;
 
+            while (j >= 0 && arr2[j] > chave) {
+                arr2[j + 1] = arr2[j];
+                j = j - 1;
+                contador++;
+            }
+            arr2[j + 1] = chave;
+        }
+        return contador;
     }
 
+    public static void main(String[] args) {
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[10];
+        Random rnd = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            int random = rnd.nextInt(100);
+            arr1[i] = random;
+            arr2[i] = random;
+        }
 
 
+        System.out.println("Array 1: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println("\nArray 2: ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(arr2[i] + " ");
+        }
 
-//        int[] numeros = new int[10];
-//        random(numeros);
-//
-//        System.out.print("Array antes da ordenação: ");
-//        imprimirArray(numeros);
-//        ordenacaoPorInsercao(numeros);
-//        System.out.print("Array após a ordenação: ");
-//        imprimirArray(numeros);
-//    }
-//
-//    public static void ordenacaoPorInsercao(int[] array) {
-//        int n = array.length;
-//        int trocas = 0;
-//        for (int i = 1; i < n; ++i) {
-//            int chave = array[i];
-//            int j = i - 1;
-//            trocas++;
-//
-//            while (j >= 0 && array[j] > chave) {
-//                array[j + 1] = array[j];
-//                j = j - 1;
-//            }
-//
-//            array[j + 1] = chave;
-//        }
-//        System.out.println("Total de trocas: " + trocas);
-//    }
-//
-//    public static void imprimirArray(int[] array) {
-//        for (int i = 0; i < array.length; ++i) {
-//            System.out.print(array[i] + " ");
-//        }
-//        System.out.println();
-//    }
-//
-//    public static void random(int[] array) {
-//        for (int i = 0; i < 10; i++) {
-//            Random rnd = new Random();
-//            int random = rnd.nextInt(100);
-//            array[i] = random;
-//        }
-//    }
+        System.out.println(" ");
 
-    //        ***** Duvida // Incompleto *****
+        bubbleSort(arr1);
+        System.out.println("\nArray ordenado usando Bubble Sort:");
+
+        for (int num : arr1) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nNúmero de trocas usando Bubble Sort: " + bubbleSort(arr1));
+
+        InsertionSort(arr2);
+        System.out.println("\nArray ordenado usando Insertion Sort:");
+
+        for (int num : arr2) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nNúmero de trocas usando Insertion Sort: " + InsertionSort(arr2));
+    }
+
 }

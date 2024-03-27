@@ -14,8 +14,9 @@ public class Exercicio4 {
         Random rnd = new Random();
         Scanner ler = new Scanner(System.in);
 
-        int a = 0, c = 9;
-        int b = (a + c) / 2;
+        int a = 0;
+        int c = 9;
+
 
 //        System.out.println("Digite 10 valores para um vetor");
 
@@ -23,7 +24,6 @@ public class Exercicio4 {
 //            int num = ler.nextInt();
 //            vet[i] = num;
             int random = rnd.nextInt(100);
-
             vet[i] = random;
         }
 
@@ -39,15 +39,16 @@ public class Exercicio4 {
             System.out.print(vet[i] + " ");
         }
 
-        System.out.println("\n Digite um número à ser buscado na lista: ");
+        System.out.println("\nDigite um número à ser buscado na lista: ");
         int num = ler.nextInt();
 
         for (int i = 0; i < 10; i++) {
+            int b = (a + c) / 2;
+//            System.out.println("b: " + b);
             if (vet[b] == num) {
-                System.out.println("O número escolhido está no índice: " + i);
-                break;
+                System.out.println("O número escolhido está no índice: " + b);
+                return;
             } else if (vet[b] > num) {
-                Math.floor(b);
                 c = b - 1;
             } else if (vet[b] < num) {
                 a = b + 1;
