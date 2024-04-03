@@ -2,11 +2,11 @@ package ListaExercicios2;
 
 public class ListaEncadeada {
     int ultimo = 0;
-    int aux;
     private int[] vetor;
 
-    public void ListaVazia() {
+    public void ListaEncadeada() {
         int[] vetor = new int[10];
+        ultimo = 0;
     }
 
     public void InserirInicio(int num) {
@@ -25,14 +25,15 @@ public class ListaEncadeada {
         ultimo++;
     }
 
-    public  void InserirPosicao(int num, int posicao) {
-        aux = --ultimo;
-        for (int i = ultimo; i = posicao; i--){
-            this.vetor[aux] = this.vetor[aux+1];
-            aux --;
-        }
-        vetor[posicao] = num;
-    }
+//    public void InserirPosicao(int num, int posicao) {
+//
+//        int aux = --ultimo;
+//        for (int i = ultimo; i = posicao; i--) {
+//            this.vetor[aux] = this.vetor[aux + 1];
+//            aux--;
+//        }
+//        vetor[posicao] = num;
+//    }
 
 
 }
